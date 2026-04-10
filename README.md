@@ -27,3 +27,4 @@ Proposed Solution: Develop a Study Group Scheduling System that automatically as
 
 The system will gather information about students and the study groups they belong to. Identify overlapping memberships between groups and assign time slots efficiently while ensuring that the number of time slots used is as small as possible while avoiding conflicts. Finally it will provide a clear timetable for each study group and individual students.
 
+Repository URL
