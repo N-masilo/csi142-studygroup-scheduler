@@ -1,35 +1,53 @@
-package ub.csi142.studygroupscheduler.model;
+import java.util.*;
 
-public class Session implements Schedulable {
-    private String sessionID;
-    private StudyGroup group;
-    private TimeSlot slot;
-    private String topic;
+class StudySession {
+    String subject;
+    int duration;
 
-    public Session(String sessionID, StudyGroup group,
-                   TimeSlot slot, String topic) {
-        this.sessionID = sessionID;
-        this.group = group;
-        this.slot = slot;
-        this.topic = topic;
-    }
-
-    public String getSessionID() { return sessionID; }
-    public StudyGroup getGroup() { return group; }
-    public TimeSlot getSlot() { return slot; }
-    public String getTopic() { return topic; }
-
-    @Override
-    public void displayInfo() {
-        System.out.println("=== Session: " + sessionID + " ===");
-        System.out.println("Group : " + group.getGroupName());
-        System.out.println("Topic : " + topic);
-        System.out.println("Time  : " + slot.toString());
+    public StudySession(String subject, int duration){
+        this.subject = subject;
+        this.duration = duration;
     }
 
     @Override
-    public String getSummary() {
-        return sessionID + " | " + group.getGroupName()
-               + " | " + topic + " | " + slot.toString();
+    public String toString (){
+        return subject + "-"+ duration + "mid";
+    }
+}
+
+public class StudyPlanner {
+    public static void allocate Sessions (List <StudySession>sessions, intmaxSessionTime){
+        int currentTime = 0;
+        int session Number = 1:
+
+        System.out.println ("Study Plan:\n");
+        for (StudySession s : sessions){
+            if (currentTime + s.duration>maxSessionTime){
+                sessionNumber++;
+                currentTime = 0;System.out.println("\n---Session"+sessionNumber+"---");
+
+            }
+
+            if (currentTime==0){
+                System.out.println("---SessionNumber"+"---");
+            }
+
+            System.out.println(s)
+            currentTime+=s.duration;
+        }
+    }
+
+    public static void main (String[]args){
+        List<StudySession>sessions=new ArrayList<>();
+
+        sessions.add(new StudySessions("Math",45));
+        sessions.add(new StudySessions("Physics",60));
+        sessions.add(new StudySessions("Chemistry",60));
+        sessions.add(new StudySessions("Biology",30));
+
+        int maxSessionTime=120;
+
+        allocateSessions(sessions, maxSrssionTime);
+
     }
 }
