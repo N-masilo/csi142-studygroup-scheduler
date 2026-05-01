@@ -1,54 +1,45 @@
 package ub.csi142.studygroupscheduler.model;
 
-public class Student {
-    //TODO: Fields and methods - Milestone 3
-    private String studentID;
-    private String fullName;
-    private String email;
+import ub.csi142.studygroupscheduler.exceptions.InvalidInputException;
 
-    public Student(String studentID, String fullName, String email) {
-        this.studentID = studentID;
-        this.fullName = fullName;
-        this.email = email;
+public class Student extends Person {
+
+    private String programme;
+    private int    yearOfStudy;
+
+    public Student(String studentId, String fullName, String email,
+                   String programme, int yearOfStudy) {
+        super(studentId, fullName, email);
+        setProgramme(programme);
+        setYearOfStudy(yearOfStudy);
     }
 
-    public String getstudentID() {
-        return studentID;
+    public Student(String studentId, String fullName, String email, String programme) {
+        this(studentId, fullName, email, programme, 1);
     }
 
-    public String getfullname() {
-        return fullName;
-    }    
+    public String getProgramme()   { return programme; }
+    public int    getYearOfStudy() { return yearOfStudy; }
 
-    public String getemail() {
-        return email;
+    public void setProgramme(String programme) {
+        if (programme == null || programme.trim().isEmpty())
+            throw new InvalidInputException("Programme cannot be blank.");
+        this.programme = programme.trim();
     }
 
-    public static void main(String[] args) {
-        Student s = new
-    Student("202507533", "Karabo Machola", "Machola@ub.ac.bw");
-
-    System.out.println("--- Student Test ---");
-    System.out.println("ID: " + s.getstudentID());
-    System.out.println("Name: " + s.getfullname());
-    System.out.println("Email: " + s.getemail());
-
-    }
-
-    public void setstudentID(String studentID) {
-        this.studentID = studentID;
-    }
-
-    public void setfullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public void setemail(String email) {
-        this.email = email;
+    public void setYearOfStudy(int year) {
+        if (year < 1 || year > 4)
+            throw new InvalidInputException("Year of study must be between 1 and 4.");
+        this.yearOfStudy = year;
     }
 
     @Override
+    public String getRole() { return "Student"; }
+
+    @Override
     public String toString() {
-        return "Student ID: " + studentID + ", Name: " + fullName;
+        return "[" + getStudentId() + "] " + getFullName()
+               + " | " + programme + " Year " + yearOfStudy
+               + " (" + getRole() + ")";
     }
 }
