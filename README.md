@@ -1,31 +1,59 @@
+# UB Study-Group Scheduler
+CSI142 Object Oriented Programming — Semester II 2025/26
+University of Botswana, Department of Computer Science
 
-CSI142 GROUP MINI-PROJECT ASSIGNMENT
+---
 
-Members
+## Project Overview
+A Java console application that allows University of Botswana students to create
+and manage study groups, schedule sessions, track members, and generate reports.
 
-Member 1: Keith Wallace
+## Domain
+Campus and Youth Life — students at UB form study groups informally through
+WhatsApp. This system gives them a structured console-based tool to manage
+everything in one place.
 
-Member 2: Naledi Masilo
+---
 
-Member 3: Tyler Thapo
+## Team Members
+| Name              | Role                      |
+|-------------------|---------------------------|
+| Naledi Masilo     | Team Lead / OOP Design    |
+| Keith Wallace     | Core Developer            |
+| Moagisi Ramatlae  | Core Developer            |
+| Thuto Tyler Thapo | Testing & Documentation   |
+| Loago Amogelang   | Git & Integration         |
 
-Member 4: Moagisi Rametlae
+---
 
-Member 5:  Loago Amogelang
+## How to Compile and Run (from project root)
 
-CONCEPT NOTE 
+1) Compile all source files:
 
-Project Name: STUDY GROUP SCHEDULING SYSTEM
+   Windows:
+   javac -d out src/ub/csi142/studygroupscheduler/app/MainApp.java
 
- 
+   Mac/Linux:
+   find src -name "*.java" | xargs javac -d out
 
-Problem Statement: Students often belong to multiple study groups, which can lead to scheduling conflicts when meetings are planned at the same time. The problem is to assign time slots to study groups in such a way that no student is required to attend more than one group at the same time. The goal is to minimize scheduling conflicts while using as few time slots as possible.
+2) Run the program:
+   java -cp out ub.csi142.studygroupscheduler.app.MainApp
 
- 
+> The app starts with 2 pre-loaded groups so you can demo immediately.
 
-Proposed Solution: Develop a Study Group Scheduling System that automatically assigns optimal time slots to different study groups while minimizing conflicts for students who belong to multiple groups.
+---
 
-The system will gather information about students and the study groups they belong to. Identify overlapping memberships between groups and assign time slots efficiently while ensuring that the number of time slots used is as small as possible while avoiding conflicts. Finally it will provide a clear timetable for each study group and individual students.
-
-Repository URL
- https://github.com/N-masilo/csi142-studygroup-scheduler
+## Features
+| Option | Feature                      |
+|--------|------------------------------|
+| 1      | Create a study group         |
+| 2      | Add student to a group       |
+| 3      | Schedule a session           |
+| 4      | View all groups              |
+| 5      | View sessions for a group    |
+| 6      | View all sessions            |
+| 7      | Update session status        |
+| 8      | Search groups by course code |
+| 9      | View group members           |
+| 10     | Print groups report          |
+| 0      | Exit                         |
